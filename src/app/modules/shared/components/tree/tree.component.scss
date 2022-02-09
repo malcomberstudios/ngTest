@@ -1,0 +1,25 @@
+.mat-tree-node{
+  padding-left: 40px;
+}
+
+
+.main-node{
+  box-shadow: none;
+  //transition: all 200ms;
+}
+
+
+$accent: lighten(coral, 10%);
+
+.main-node{
+  border-radius: 0.2rem;
+  border: 2px solid transparent;
+  &:hover {
+    background-color: $accent;
+    color: white;
+  }
+
+  &.is-active{
+    border: 2px solid $accent;
+  }
+}

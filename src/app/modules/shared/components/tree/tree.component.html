@@ -1,0 +1,30 @@
+
+<mat-expansion-panel *ngIf="TreeData" [hideToggle]="IsLoadingData" (opened)="LoadData()">
+  <mat-expansion-panel-header>
+    <mat-panel-title>{{TreeData.title}}</mat-panel-title>
+  </mat-expansion-panel-header>
+  <mat-progress-bar *ngIf="IsLoadingData" mode="indeterminate"></mat-progress-bar>
+  <mat-tree [dataSource]="TreeData.dataSource" [treeControl]="TreeData.treeControl">
+    <mat-tree-node (click)="TreeData.ActivateItem(node)" class="is-clickable main-node" [ngClass]="{'is-active': TreeData.Active === node}" *matTreeNodeDef="let node" matTreeNodeToggle>
+      {{node.text}}
+    </mat-tree-node>
+
+    <mat-nested-tree-node *matTreeNodeDef="let node; when: TreeData.hasChild">
+      <div class="mat-tree-node">
+        <button mat-icon-button matTreeNodeToggle
+                [attr.aria-label]="'Toggle ' + node.name">
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{TreeData.treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+          </mat-icon>
+        </button>
+        {{node.text}}
+      </div>
+      <div [class.example-tree-invisible]="!TreeData.treeControl.isExpanded(node)"
+           role="group">
+        <ng-container matTreeNodeOutlet></ng-container>
+      </div>
+    </mat-nested-tree-node>
+
+  </mat-tree>
+</mat-expansion-panel>
+

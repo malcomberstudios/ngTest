@@ -1,0 +1,8 @@
+<app-panel [HaasBeenModified]="formGroup.dirty" [Title]="name">
+  <div [formGroup]="formGroup" class="field">
+    <label class="label">Name</label>
+    <div class="control">
+      <input formControlName="name" class="input" type="text" placeholder="e.g. Directors & Others">
+    </div>
+  </div>
+</app-panel>

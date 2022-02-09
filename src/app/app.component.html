@@ -1,0 +1,38 @@
+<div class="main-content">
+  <div class="header">
+    <mat-toolbar>
+      <div class="title is-1">Angular Test</div>
+    </mat-toolbar>
+  </div>
+  <div class="body">
+    <div class="columns">
+      <div class="column is-4">
+        <ng-container *ngFor="let tree of TreeLoaders">
+          <app-tree [TreeData]="tree.TreeData"></app-tree>
+        </ng-container>
+      </div>
+      <div class="column is-7">
+        <div class="is-flex is-justify-content-flex-end">
+          <button *ngIf="ActiveFormGroup" class="button is-primary" [disabled]="ActiveFormGroup.pristine" (click)="Update()">Update</button>
+        </div>
+        <ng-container *ngIf="ActiveFormGroup && FormType">
+          <ng-container *ngIf="FormType === DataType.Exec">
+            <app-exec-title [formGroup]="ActiveFormGroup"></app-exec-title>
+            <app-exec-details [formGroup]="ActiveFormGroup"></app-exec-details>
+          </ng-container>
+          <app-exec-group-name *ngIf="FormType === DataType.ExecGroup" [formGroup]="ActiveFormGroup"></app-exec-group-name>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <footer class="footer pb-3">
+    <div class="content has-text-centered">
+      <p>
+        Built by Royston Malcomber
+      </p>
+      <p *ngIf="!env.production">
+        Dev Mode
+      </p>
+    </div>
+  </footer>
+</div>

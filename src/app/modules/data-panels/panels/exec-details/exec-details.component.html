@@ -1,0 +1,66 @@
+<app-panel [HaasBeenModified]="formGroup.dirty" [Title]="name">
+  <form [formGroup]="formGroup">
+
+    <div class="row">
+
+      <div class="columns">
+        <div class="column is-2">
+          <div class="field">
+            <label  class="label">Sys initials*</label>
+            <div class="control">
+              <input formControlName="systemInitials" type="text" class="input" placeholder="e.g SA">
+            </div>
+          </div>
+        </div>
+        <div class="column is-5">
+          <div class="field">
+            <label  class="label">Salutation</label>
+            <div class="control">
+              <input formControlName="salutation" type="text" class="input" placeholder="e.g SA">
+            </div>
+          </div>
+        </div>
+        <div class="column is-5">
+          <div class="field">
+            <label  class="label">Job title</label>
+            <div class="control">
+              <input formControlName="jobTitle" type="text" class="input" placeholder="e.g SA">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="columns">
+        <div class="column is-6">
+          <div class="field">
+            <label  class="label">Office</label>
+            <div class="control">
+              <div class="select is-fullwidth">
+                <select>
+                  <option *ngFor="let office of fakeOffices">{{office}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column is-6">
+          <div class="field">
+            <label  class="label">Group*</label>
+            <div class="control">
+              <div class="select is-fullwidth">
+                <select formControlName="executiveGroup">
+                  <option [value]="{}">Select Group</option>
+                  <option [value]="group" *ngFor="let group of $groups | async">{{group.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</app-panel>

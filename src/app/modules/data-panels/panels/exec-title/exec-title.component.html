@@ -1,0 +1,57 @@
+<app-panel [HaasBeenModified]="formGroup.dirty" [Title]="name">
+  <form [formGroup]="formGroup">
+    <div class="columns">
+
+      <div class="column is-3">
+        <div class="field">
+          <label class="label">Prefix</label>
+          <div class="control">
+            <div class="select is-fullwidth">
+              <select formControlName="title">
+                <option>Select Prefix</option>
+                <option *ngFor="let prefix of Prefixes | enumToArray">{{prefix}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-3">
+        <div class="field">
+          <label class="label">First name</label>
+          <div class="control">
+            <input formControlName="firstName" class="input" type="text" placeholder="e.g Alex">
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-1">
+        <div class="field">
+          <label class="label">Initial</label>
+          <div class="control">
+            <input formControlName="initials" class="input" type="text" placeholder="e.g E">
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-3">
+        <div class="field">
+          <label class="label">Last name</label>
+          <div class="control">
+            <input formControlName="lastName" class="input" type="text" placeholder="e.g Smith">
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-2">
+        <div class="field">
+          <label class="label">Suffix</label>
+          <div class="control">
+            <input formControlName="initials" class="input" type="text" placeholder="bsc">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</app-panel>

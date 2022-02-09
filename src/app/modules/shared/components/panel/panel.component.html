@@ -1,0 +1,9 @@
+<mat-card class="has-background-info-light mb-3">
+  <mat-card-title>{{Title}}:<span *ngIf="HaasBeenModified">*</span></mat-card-title>
+  <mat-card-content>
+    <ng-content></ng-content>
+  </mat-card-content>
+  <mat-card-actions *ngIf="DisplaySave" align="end">
+    <button (click)="SavedPressed($event)" class="button is-success" mat-button>Save</button>
+  </mat-card-actions>
+</mat-card>
